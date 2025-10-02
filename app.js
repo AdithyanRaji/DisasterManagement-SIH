@@ -9,11 +9,11 @@ const appData = {
     logo: "🛡️"
   },
   emergencyContacts: [
-    {"name": "Police", "number": "911", "icon": "🚔", "category": "law_enforcement"},
-    {"name": "Fire Department", "number": "911", "icon": "🚒", "category": "fire_rescue"},
-    {"name": "Emergency Medical", "number": "911", "icon": "🚑", "category": "medical_emergency"},
-    {"name": "Emergency Management", "number": "1-800-EMERGENCY", "icon": "🆘", "category": "disaster_response"},
-    {"name": "Emergency Helpline", "number": "211", "icon": "📞", "category": "information_support"}
+    {"name": "Police", "number": "112", "icon": "🚔", "category": "law_enforcement"},
+    {"name": "Fire Department", "number": "112", "icon": "🚒", "category": "fire_rescue"},
+    {"name": "Emergency Medical", "number": "102", "icon": "🚑", "category": "medical_emergency"},
+    {"name": "Emergency Management", "number": "011-24363260", "icon": "🆘", "category": "disaster_response"},
+    {"name": "Emergency Helpline", "number": "1098", "icon": "📞", "category": "information_support"}
   ],
   dashboardMetrics: [
     {"title": "Active Alerts", "value": 3, "target": 3, "change": "+2", "trend": "up", "icon": "🚨", "color": "#DC3545", "priority": "critical"},
