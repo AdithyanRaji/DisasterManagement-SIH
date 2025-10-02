@@ -1,0 +1,11 @@
+Color Name,Usage,HEX,RGB,Tailwind_CSS
+Primary Navy,"Header, Navbar, Section Backgrounds",#0A3D62,"rgb(10, 61, 98)",bg-slate-900
+Content Background,"Content Areas, Cards, Main Background",#F8F9FA,"rgb(248, 249, 250)",bg-gray-50
+Action Orange,"Call-to-Action Buttons (Register, Login)",#F39C12,"rgb(243, 156, 18)",bg-orange-500
+Highlight Blue,"Highlights, Icons, Hover Effects",#3498DB,"rgb(52, 152, 219)",bg-blue-500
+Footer Gray,"Footer, Secondary Text",#2C3E50,"rgb(44, 62, 80)",bg-gray-700
+White,Text on Dark Backgrounds,#FFFFFF,"rgb(255, 255, 255)",bg-white
+Light Gray,"Subtle Backgrounds, Borders",#E9ECEF,"rgb(233, 236, 239)",bg-gray-100
+Success Green,"Success Messages, Completion States",#27AE60,"rgb(39, 174, 96)",bg-green-500
+Warning Red,"Alerts, Emergency Buttons",#E74C3C,"rgb(231, 76, 60)",bg-red-500
+Info Purple,"Links, Interactive Elements",#9B59B6,"rgb(155, 89, 182)",bg-purple-500

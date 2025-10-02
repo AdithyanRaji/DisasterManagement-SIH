@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQNet - Professional Disaster Management Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <div class="logo">
+                        <span class="logo-icon">🛡️</span>
+                        <span class="logo-text">ResQNet</span>
+                    </div>
+                    <div class="tagline">Professional Disaster Management Platform</div>
+                    <div class="subtitle">Emergency Response & Community Resilience</div>
+                </div>
+                <nav class="nav">
+                    <button class="nav__item active" data-section="dashboard">
+                        <span class="nav__icon">🏠</span>
+                        <span class="nav__text">Dashboard</span>
+                    </button>
+                    <button class="nav__item" data-section="risk-mapping">
+                        <span class="nav__icon">🗺️</span>
+                        <span class="nav__text">Risk Mapping</span>
+                    </button>
+                    <button class="nav__item" data-section="alerts">
+                        <span class="nav__icon">🚨</span>
+                        <span class="nav__text">Alerts</span>
+                    </button>
+                    <button class="nav__item" data-section="learning">
+                        <span class="nav__icon">🎓</span>
+                        <span class="nav__text">Learning</span>
+                    </button>
+                    <button class="nav__item" data-section="community">
+                        <span class="nav__icon">👥</span>
+                        <span class="nav__text">Community</span>
+                    </button>
+                    <button class="nav__item" data-section="recovery">
+                        <span class="nav__icon">🔧</span>
+                        <span class="nav__text">Recovery</span>
+                    </button>
+                    <button class="nav__item" data-section="profile">
+                        <span class="nav__icon">👤</span>
+                        <span class="nav__text">Profile</span>
+                    </button>
+                </nav>
+                <button class="emergency-btn" id="emergencyBtn">
+                    <span class="emergency-btn__icon">🆘</span>
+                    <span class="emergency-btn__text">EMERGENCY SOS</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h1>Welcome to ResQNet</h1>
+                    <p class="hero-subtitle">Your trusted partner in disaster preparedness and community resilience</p>
+                    <div class="alert-ticker">
+                        <div class="alert-ticker__label">🚨 Current Alerts:</div>
+                        <div class="alert-ticker__content" id="alertTicker"></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card weather-widget">
+                        <h3>Current Weather</h3>
+                        <div class="weather-info">
+                            <div class="weather-main">
+                                <span class="weather-icon">☀️</span>
+                                <span class="weather-temp">28°C</span>
+                            </div>
+                            <div class="weather-details">
+                                <div>Humidity: 65%</div>
+                                <div>Wind: 12 km/h</div>
+                                <div>Location: Local Area</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn cta-button" data-section="alerts">
+                                <span class="action-icon">📢</span>
+                                <span>Report Incident</span>
+                            </button>
+                            <button class="action-btn" data-section="risk-mapping">
+                                <span class="action-icon">🗺️</span>
+                                <span>View Risk Map</span>
+                            </button>
+                            <button class="action-btn cta-button" data-section="learning">
+                                <span class="action-icon">📚</span>
+                                <span>Take Quiz</span>
+                            </button>
+                            <button class="action-btn" data-section="community">
+                                <span class="action-icon">💬</span>
+                                <span>Join Discussion</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card emergency-contacts">
+                        <h3>Emergency Contacts</h3>
+                        <div class="contact-list" id="emergencyContactsList"></div>
+                    </div>
+
+                    <div class="dashboard-card recent-reports">
+                        <h3>Community Reports</h3>
+                        <div class="report-list">
+                            <div class="report-item">
+                                <div class="report-header">
+                                    <span class="report-type">🌊 Flood Alert</span>
+                                    <span class="report-time">2h ago</span>
+                                </div>
+                                <p>Water level rising in River Valley area</p>
+                            </div>
+                            <div class="report-item">
+                                <div class="report-header">
+                                    <span class="report-type">🔥 Fire Safety</span>
+                                    <span class="report-time">4h ago</span>
+                                </div>
+                                <p>Fire safety drill completed successfully at Community Center</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card user-stats">
+                        <h3>Your Progress</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" id="userPoints">0</span>
+                                <span class="stat-label">Points</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="userBadges">0</span>
+                                <span class="stat-label">Badges</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="checklistProgress">0%</span>
+                                <span class="stat-label">Prepared</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card disaster-cycle">
+                        <h3>Disaster Management Cycle</h3>
+                        <div class="cycle-placeholder">
+                            <div class="cycle-item">🔄 Prevention</div>
+                            <div class="cycle-item">⚡ Preparedness</div>
+                            <div class="cycle-item">🚨 Response</div>
+                            <div class="cycle-item">🔧 Recovery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Mapping Section -->
+        <section id="risk-mapping" class="section">
+            <div class="container">
+                <h2>Risk Mapping & Preparedness</h2>
+                
+                <div class="risk-tabs">
+                    <button class="tab-btn active" data-tab="map">Interactive Map</button>
+                    <button class="tab-btn" data-tab="resources">Resources</button>
+                    <button class="tab-btn" data-tab="checklist">Preparedness Checklist</button>
+                </div>
+
+                <div id="map" class="tab-content active">
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <h3>🗺️ Interactive Risk Map</h3>
+                            <p>Real-time disaster risk visualization for your area</p>
+                            <div class="map-features">
+                                <span class="feature-tag">Flood Zones</span>
+                                <span class="feature-tag">Earthquake Risk</span>
+                                <span class="feature-tag">Evacuation Routes</span>
+                                <span class="feature-tag">Safe Zones</span>
+                            </div>
+                        </div>
+                        <div class="map-legend">
+                            <h4>Risk Levels</h4>
+                            <div class="legend-item"><span class="legend-color high-risk"></span> High Risk</div>
+                            <div class="legend-item"><span class="legend-color medium-risk"></span> Medium Risk</div>
+                            <div class="legend-item"><span class="legend-color low-risk"></span> Low Risk</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="resources" class="tab-content">
+                    <div class="resources-grid" id="resourcesList"></div>
+                </div>
+
+                <div id="checklist" class="tab-content">
+                    <div class="checklist-container">
+                        <div class="checklist-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="checklistProgressBar"></div>
+                            </div>
+                            <span class="progress-text" id="checklistProgressText">0% Complete</span>
+                        </div>
+                        <div class="checklist-items" id="checklistItems"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section id="alerts" class="section">
+            <div class="container">
+                <h2>Real-time Alerts & Response</h2>
+                
+                <div class="alerts-grid">
+                    <div class="alert-panel active-alerts">
+                        <h3>Active Alerts</h3>
+                        <div class="alert-list" id="activeAlertsList"></div>
+                    </div>
+                    
+                    <div class="alert-panel report-incident">
+                        <h3>Report Incident</h3>
+                        <form class="incident-form" id="incidentForm">
+                            <div class="form-group">
+                                <label class="form-label">Incident Type</label>
+                                <select class="form-control" required>
+                                    <option value="">Select type...</option>
+                                    <option value="flood">Flood</option>
+                                    <option value="fire">Fire</option>
+                                    <option value="earthquake">Earthquake</option>
+                                    <option value="landslide">Landslide</option>
+                                    <option value="hurricane">Hurricane</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Location</label>
+                                <input type="text" class="form-control" placeholder="Enter location" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Describe the incident" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Upload Photo (Simulated)</label>
+                                <input type="file" class="form-control" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn btn-cta btn--full-width">Submit Report</button>
+                        </form>
+                    </div>
+
+                    <div class="alert-panel chatbot">
+                        <h3>AI Emergency Assistant</h3>
+                        <div class="chatbot-container">
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="chat-message bot">
+                                    <div class="message-content">
+                                        Hello! I'm your emergency assistant. How can I help you today? You can ask about:
+                                        <br>• First aid procedures
+                                        <br>• Safety instructions
+                                        <br>• Emergency protocols
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <input type="text" class="chat-input" placeholder="Ask for emergency guidance..." id="chatInput">
+                                <button class="chat-send" id="chatSend">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Hub Section -->
+        <section id="learning" class="section">
+            <div class="container">
+                <h2>Learning Hub & Gamification</h2>
+                
+                <div class="learning-tabs">
+                    <button class="tab-btn active" data-tab="quiz">Interactive Quiz</button>
+                    <button class="tab-btn" data-tab="achievements">Achievements</button>
+                    <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+                </div>
+
+                <div id="quiz" class="tab-content active">
+                    <div class="quiz-container">
+                        <div class="quiz-header">
+                            <h3>Disaster Preparedness Quiz</h3>
+                            <div class="quiz-stats">
+                                <span>Question <span id="currentQuestion">1</span> of <span id="totalQuestions">3</span></span>
+                                <span>Score: <span id="currentScore">0</span></span>
+                            </div>
+                        </div>
+                        <div class="quiz-content" id="quizContent">
+                            <div class="quiz-question" id="quizQuestion"></div>
+                            <div class="quiz-options" id="quizOptions"></div>
+                            <button class="btn btn-cta quiz-submit" id="submitAnswer" disabled>Submit Answer</button>
+                        </div>
+                        <div class="quiz-results hidden" id="quizResults">
+                            <h3>Quiz Complete!</h3>
+                            <div class="results-stats">
+                                <div class="result-stat">
+                                    <span class="stat-number" id="finalScore">0</span>
+                                    <span class="stat-label">Final Score</span>
+                                </div>
+                                <div class="result-stat">
+                                    <span class="stat-number" id="pointsEarned">0</span>
+                                    <span class="stat-label">Points Earned</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--secondary" id="restartQuiz">Take Quiz Again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="achievements" class="tab-content">
+                    <div class="achievements-grid" id="achievementsList"></div>
+                </div>
+
+                <div id="leaderboard" class="tab-content">
+                    <div class="leaderboard-container">
+                        <h3>Community Leaderboard</h3>
+                        <div class="leaderboard-list">
+                            <div class="leaderboard-item">
+                                <span class="rank">1</span>
+                                <span class="name">PreparedCitizen</span>
+                                <span class="score">1,250 pts</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="rank">2</span>
+                                <span class="name">SafetyFirst</span>
+                                <span class="score">980 pts</span>
+                            </div>
+                            <div class="leaderboard-item current-user">
+                                <span class="rank">15</span>
+                                <span class="name">You</span>
+                                <span class="score" id="leaderboardScore">0 pts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section">
+            <div class="container">
+                <h2>Community Forum</h2>
+                
+                <div class="forum-header">
+                    <button class="btn btn-cta" id="newPostBtn">Create New Post</button>
+                </div>
+
+                <div class="forum-posts" id="forumPosts"></div>
+
+                <!-- New Post Modal -->
+                <div class="modal hidden" id="newPostModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Create New Post</h3>
+                            <button class="modal-close" id="closeModal">&times;</button>
+                        </div>
+                        <form class="modal-body" id="newPostForm">
+                            <div class="form-group">
+                                <label class="form-label">Title</label>
+                                <input type="text" class="form-control" placeholder="Enter post title" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Content</label>
+                                <textarea class="form-control" rows="5" placeholder="Share your experience, tips, or ask questions" required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn--secondary" id="cancelPost">Cancel</button>
+                                <button type="submit" class="btn btn-cta">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recovery Section -->
+        <section id="recovery" class="section">
+            <div class="container">
+                <h2>Post-Disaster Recovery</h2>
+                
+                <div class="recovery-grid">
+                    <div class="recovery-panel damage-assessment">
+                        <h3>Damage Assessment</h3>
+                        <form class="assessment-form">
+                            <div class="form-group">
+                                <label class="form-label">Assessment Type</label>
+                                <select class="form-control" required>
+                                    <option value="">Select type...</option>
+                                    <option value="structural">Structural Damage</option>
+                                    <option value="infrastructure">Infrastructure</option>
+                                    <option value="agricultural">Agricultural Loss</option>
+                                    <option value="environmental">Environmental Impact</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Severity Level</label>
+                                <select class="form-control" required>
+                                    <option value="">Select severity...</option>
+                                    <option value="minor">Minor</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="severe">Severe</option>
+                                    <option value="critical">Critical</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Describe the damage" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-cta">Submit Assessment</button>
+                        </form>
+                    </div>
+
+                    <div class="recovery-panel volunteer-management">
+                        <h3>Volunteer Opportunities</h3>
+                        <div class="volunteer-list">
+                            <div class="volunteer-item">
+                                <h4>Relief Distribution</h4>
+                                <p>Help distribute food and water in affected areas</p>
+                                <div class="volunteer-meta">
+                                    <span>📍 Downtown District</span>
+                                    <span>⏰ 9 AM - 5 PM</span>
+                                </div>
+                                <button class="btn btn--outline btn--sm">Volunteer</button>
+                            </div>
+                            <div class="volunteer-item">
+                                <h4>Medical Aid</h4>
+                                <p>Assist medical teams in providing healthcare</p>
+                                <div class="volunteer-meta">
+                                    <span>📍 Medical Center</span>
+                                    <span>⏰ Flexible Hours</span>
+                                </div>
+                                <button class="btn btn--outline btn--sm">Volunteer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recovery-panel mental-health">
+                        <h3>Mental Health Support</h3>
+                        <div class="support-resources">
+                            <div class="resource-item">
+                                <span class="resource-icon">🧠</span>
+                                <div class="resource-info">
+                                    <h4>Counseling Helpline</h4>
+                                    <p>24/7 psychological support</p>
+                                    <strong>Call: 211</strong>
+                                </div>
+                            </div>
+                            <div class="resource-item">
+                                <span class="resource-icon">👥</span>
+                                <div class="resource-info">
+                                    <h4>Support Groups</h4>
+                                    <p>Connect with other survivors</p>
+                                    <button class="btn btn--outline btn--sm">Join Group</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="container">
+                <h2>Profile & Settings</h2>
+                
+                <div class="profile-grid">
+                    <div class="profile-panel user-info">
+                        <h3>User Information</h3>
+                        <div class="profile-avatar">
+                            <div class="avatar">👤</div>
+                            <div class="user-details">
+                                <h4 id="userName">Community Member</h4>
+                                <p>Member since October 2025</p>
+                            </div>
+                        </div>
+                        <div class="user-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="profilePoints">0</span>
+                                <span class="stat-label">Total Points</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="profileBadges">0</span>
+                                <span class="stat-label">Badges Earned</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="profilePosts">0</span>
+                                <span class="stat-label">Forum Posts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-panel settings">
+                        <h3>Settings</h3>
+                        <div class="settings-group">
+                            <label class="form-label">Language Preference</label>
+                            <select class="form-control" id="languageSelect"></select>
+                        </div>
+                        <div class="settings-group">
+                            <label class="form-label">Notification Preferences</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked> Emergency Alerts
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked> Community Updates
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> Quiz Reminders
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="offlineMode"> Enable Offline Mode
+                            </label>
+                            <p class="setting-description">Download critical data for offline access during emergencies</p>
+                        </div>
+                        <button class="btn btn-cta">Save Settings</button>
+                    </div>
+
+                    <div class="profile-panel emergency-contacts">
+                        <h3>Emergency Contacts</h3>
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <label class="form-label">Primary Contact</label>
+                                <input type="tel" class="form-control" placeholder="Enter phone number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Secondary Contact</label>
+                                <input type="tel" class="form-control" placeholder="Enter phone number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Medical Emergency Contact</label>
+                                <input type="tel" class="form-control" placeholder="Enter phone number">
+                            </div>
+                            <button class="btn btn--outline">Update Contacts</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <span class="footer-logo-icon">🛡️</span>
+                        <span class="footer-logo-text">ResQNet</span>
+                    </div>
+                    <p class="footer__tagline">Building resilient communities through innovation and preparedness</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#privacy" class="footer__link" id="privacy-policy">Privacy Policy</a>
+                    <a href="#terms" class="footer__link" id="terms-service">Terms of Service</a>
+                    <a href="#contact" class="footer__link" id="contact-us">Contact Us</a>
+                </nav>
+                <div class="footer__contact">
+                    <p>Emergency Helpline: <strong>1-800-EMERGENCY</strong></p>
+                    <p>© 2025 ResQNet. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Emergency Modal -->
+    <div class="modal emergency-modal hidden" id="emergencyModal">
+        <div class="modal-content emergency-content">
+            <div class="modal-header emergency-header">
+                <h3>🆘 EMERGENCY CONTACTS</h3>
+                <button class="modal-close" id="closeEmergencyModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="emergency-contacts-grid" id="emergencyContactsModal"></div>
+                <div class="emergency-actions">
+                    <button class="btn btn-cta btn--lg emergency-action">📍 Share Location</button>
+                    <button class="btn btn--outline btn--lg emergency-action">📸 Send Photos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Link Modals -->
+    <div class="modal hidden" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔒 Privacy Policy</h3>
+                <button class="modal-close" id="closePrivacyModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your privacy is important to us. ResQNet is committed to protecting your personal information while providing essential emergency services.</p>
+                <h4>Data Collection:</h4>
+                <ul>
+                    <li>Location data for emergency response</li>
+                    <li>Contact information for alerts</li>
+                    <li>Usage data to improve services</li>
+                </ul>
+                <h4>Data Usage:</h4>
+                <ul>
+                    <li>Emergency response and disaster management</li>
+                    <li>Community safety notifications</li>
+                    <li>Service improvement and analytics</li>
+                </ul>
+                <p>We do not sell your personal data to third parties. Data is used strictly for disaster management and community safety purposes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 Terms of Service</h3>
+                <button class="modal-close" id="closeTermsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>By using ResQNet, you agree to the following terms:</p>
+                <h4>Usage Guidelines:</h4>
+                <ul>
+                    <li>Use the platform responsibly for disaster management purposes</li>
+                    <li>Provide accurate information during emergency reporting</li>
+                    <li>Respect community guidelines in forum discussions</li>
+                </ul>
+                <h4>Emergency Services:</h4>
+                <ul>
+                    <li>This platform supplements but does not replace official emergency services</li>
+                    <li>Always call official emergency numbers (911) for immediate help</li>
+                    <li>Information provided is for guidance and awareness purposes</li>
+                </ul>
+                <h4>Liability:</h4>
+                <p>While we strive for accuracy, users are responsible for verifying information and following official emergency protocols.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📞 Contact Us</h3>
+                <button class="modal-close" id="closeContactModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Get in touch with the ResQNet team:</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong>
+                        <p>support@resqnet.org</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📞 General Helpline:</strong>
+                        <p>1-800-EMERGENCY (24/7)</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>🏢 Address:</strong>
+                        <p>ResQNet Headquarters<br>
+                        Emergency Management Center<br>
+                        International Operations</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>⚡ Emergency:</strong>
+                        <p>For immediate emergencies, call:<br>
+                        Police: 911 | Fire: 911 | Medical: 911</p>
+                    </div>
+                </div>
+                <h4>Feedback & Suggestions:</h4>
+                <p>We welcome your feedback to improve our services. Please email us your suggestions or report any technical issues.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
